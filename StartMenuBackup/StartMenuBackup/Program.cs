@@ -46,6 +46,12 @@ namespace StartMenuBackup
                 {
                     Directory.CreateDirectory(destination);
                 }
+                else
+                {
+                    Console.WriteLine("Backup exists. Removing backup folder " + folder.FullName + "...");
+                    Directory.Delete(destination,true);
+                    Directory.CreateDirectory(destination);
+                }
                 Copy(folder.FullName, destination);
                 Console.WriteLine("----------------------------------");
             }
